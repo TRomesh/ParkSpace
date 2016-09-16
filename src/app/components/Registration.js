@@ -14,8 +14,6 @@ const style = {
 };
 
 
-
-
 export class Registration extends React.Component{
 
   OnSubmit = (e) => {
