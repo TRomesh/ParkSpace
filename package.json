@@ -2,7 +2,7 @@
   "name": "parkspace",
   "version": "1.0.0",
   "description": "parking app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "mocha",
     "dev": "nodemon server/app.js",
