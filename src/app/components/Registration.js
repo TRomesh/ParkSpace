@@ -2,6 +2,7 @@ import React from "react";
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Link} from 'react-router';
 
 
 const paperstyle = {
@@ -22,6 +23,7 @@ export class Registration extends React.Component{
     };
         render(){
           return(
+            <div>
             <Paper zDepth={2} style={this.paperstyle} className="col-md-4" >
             <TextField hintText=" First Name"/>
             <br/>
@@ -29,7 +31,9 @@ export class Registration extends React.Component{
             <br/>
             <RaisedButton label="Submit" primary={true} style={style} onTouchTap={this.OnSubmit}/>
             </Paper>
-
+            </div>
           );
         }
 }
+
+export default Registration;

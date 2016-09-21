@@ -1,12 +1,13 @@
-import React from "react";
+import React,{PropTypes} from 'react';
 import AppBar from 'material-ui/AppBar';
+import {Link} from 'react-router';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 
-export class Home extends React.Component {
+class Home extends React.Component {
     render() {
         return (
             <div>
@@ -28,7 +29,15 @@ export class Home extends React.Component {
                       </IconMenu>
                                 }
               />
+              {this.props.children}
             </div>
         );
     }
 }
+
+
+Home.propTypes = {
+  children: PropTypes.object.isRequired
+};
+
+export default Home;
