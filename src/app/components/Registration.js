@@ -24,12 +24,15 @@ export class Registration extends React.Component{
         render(){
           return(
             <div>
+            <div className="col-md-4"></div>
             <Paper zDepth={2} style={this.paperstyle} className="col-md-4" >
             <TextField hintText=" First Name"/>
             <br/>
             <TextField hintText="Email"/>
             <br/>
+            <Link to="login">
             <RaisedButton label="Submit" primary={true} style={style} onTouchTap={this.OnSubmit}/>
+            </Link>
             </Paper>
             </div>
           );
