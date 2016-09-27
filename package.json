@@ -43,6 +43,7 @@
   "devDependencies": {
     "eslint": "^3.5.0",
     "eslint-config-google": "^0.6.0",
+    "redux-immutable-state-invariant": "^1.2.3",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.2"
   }
