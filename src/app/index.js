@@ -7,7 +7,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Rroutes from './routes.js';
 import Home from './components/Home';
-import Login from './components/login.js';
 import Registration from './components/Registration';
 import CoursesPage from './components/course';
 

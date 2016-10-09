@@ -4,10 +4,25 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Link} from 'react-router';
 
+let BackgroundRegUrl = '../../media/img/BackgroundReg.jpg';
+
+let Backstyles = {
+        backgroundImage: 'url(' + BackgroundRegUrl + ')',
+        overflow: 'hidden',
+        backgroundPosition: 'center center',
+			  backgroundRepeat: 'no-repeat',
+			  backgroundAttachment: 'fixed',
+			  backgroundSize: 'cover',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        height:750
+
+  };
 
 const paperstyle = {
-    width:'500',
-    height:'750'
+    width:500,
+    height:750
 };
 
 const style = {
@@ -15,24 +30,70 @@ const style = {
 };
 
 
+let validateStatusText = (textStatus)=> {
+
+  if (textStatus.length > 250) {
+    return {
+            error: '*status is too long',
+          };
+  }  else if (textStatus === '' || textStatus === null) {
+    return {
+            error: '*status cannot be empty',
+          };
+  }  else {
+    return true;
+  }
+};
+
+
+
 export class Registration extends React.Component{
+
+  constructor(props,context){
+     super(props,context);
+     this.state={
+       fname:'',
+       lname:'',
+       email:'',
+       pass:''
+     };
+
+            this.OnSubmit = this.OnSubmit.bind(this);
+  }
+
 
   OnSubmit = (e) => {
         e.preventDefault();
-        console.log('Hello');
-    };
+        validateStatusText(this.refs.fname.input.value);
+        console.log(validateStatusText(this.refs.fname.input.value));
+        this.setState({fname:this.refs.fname.input.value});
+        console.log(this.state.fname);
+  };
+
         render(){
           return(
-            <div>
-            <div className="col-md-4"></div>
-            <Paper zDepth={2} style={this.paperstyle} className="col-md-4" >
-            <TextField hintText=" First Name"/>
-            <br/>
-            <TextField hintText="Email"/>
-            <br/>
-            <Link to="login">
-            <RaisedButton label="Submit" primary={true} style={style} onTouchTap={this.OnSubmit}/>
-            </Link>
+            <div style={Backstyles}>
+             <div className="col-xs-12 .col-sm-12 .col-md-12"></div>
+             <div className="col-xs-8 .col-sm-8 .col-md-8"></div>
+              <Paper zDepth={2} style={this.paperstyle} className="col-xs-4 .col-sm-4 .col-md-4" >
+                <div className="col-md-2">
+                 <TextField hintText=" First Name" ref="fname"/>
+                 <br/>
+                 <TextField hintText=" Last Name" ref="lname" />
+                 <br/>
+                 <TextField hintText="Email" ref="email"/>
+                 <br/>
+                 <TextField hintText="Password" ref="pass"/>
+                 <br/>
+                 <TextField hintText="Re enter Password" ref="repass"/>
+                 <br/>
+                 <div>
+                <RaisedButton label="Cancle" className="" secondary={true} style={style} onTouchTap={this.OnSubmit}/>
+                <Link to="course">
+                <RaisedButton label="Register" className="" primary={true} style={style} onTouchTap={this.OnSubmit}/>
+                </Link>
+                </div>
+              </div>
             </Paper>
             </div>
           );
