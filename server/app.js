@@ -5,17 +5,18 @@ const PORT = process.env.PORT || 3000;
 const router = express.Router();
 const bodyParser = require('body-parser');
 const path = require('path');
+const db='mongodb://localhost/parkspace';
 
+mongoose.connect(db);
+
+app.use(router);
 
 app.use('/', express.static('src'));
 
-router.get('/register', (req, res) => {
-
+app.get('*', function(req, res) {
+	res.sendFile(path.resolve('src', 'index.html'));
 });
 
-router.get('/park', (req, res) => {
-
-});
 
 app.listen(PORT, () => {
 	console.log('server running on port', PORT);
