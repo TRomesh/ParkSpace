@@ -47,6 +47,12 @@ let validateStatusText = (textStatus)=> {
 
 
 
+ let clearText = ()=> {
+
+ };
+
+
+
 export class Registration extends React.Component{
 
   constructor(props,context){
@@ -58,16 +64,14 @@ export class Registration extends React.Component{
        pass:''
      };
 
-            this.OnSubmit = this.OnSubmit.bind(this);
+        this.OnSubmit = this.OnSubmit.bind(this);
   }
 
 
   OnSubmit = (e) => {
         e.preventDefault();
-        validateStatusText(this.refs.fname.input.value);
-        console.log(validateStatusText(this.refs.fname.input.value));
         this.setState({fname:this.refs.fname.input.value});
-        console.log(this.state.fname);
+        console.log(this.refs.fname.input.value);
   };
 
         render(){
@@ -77,15 +81,17 @@ export class Registration extends React.Component{
              <div className="col-xs-8 .col-sm-8 .col-md-8"></div>
               <Paper zDepth={2} style={this.paperstyle} className="col-xs-4 .col-sm-4 .col-md-4" >
                 <div className="col-md-2">
-                 <TextField hintText=" First Name" ref="fname"/>
+                 <TextField hintText=" First Name" floatingLabelText="First Name" errorText="" ref="fname"/>
                  <br/>
-                 <TextField hintText=" Last Name" ref="lname" />
+                 <TextField hintText=" Last Name" floatingLabelText=" Last Name" ref="lname" />
                  <br/>
-                 <TextField hintText="Email" ref="email"/>
+                 <TextField hintText="User Name" floatingLabelText="User Name" ref="uname" />
                  <br/>
-                 <TextField hintText="Password" ref="pass"/>
+                 <TextField hintText="xxxxx@xxx.com" floatingLabelText="Email" ref="email"/>
                  <br/>
-                 <TextField hintText="Re enter Password" ref="repass"/>
+                 <TextField hintText="Password" floatingLabelText="Password" ref="pass"/>
+                 <br/>
+                 <TextField hintText="Re enter Password" floatingLabelText="Password" ref="repass"/>
                  <br/>
                  <div>
                 <RaisedButton label="Cancle" className="" secondary={true} style={style} onTouchTap={this.OnSubmit}/>
