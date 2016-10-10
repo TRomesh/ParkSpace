@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const parkingLot = new Schema({
-
+    parkname:String,
+    Lon:Number,
+    Lat:Number,
 });
 
 

@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 
 const regUsers = new Schema({
-
+  fname:String,
+  lname:String,
+  uname:String,
+  email:String,
+  password:String
 });
 
 

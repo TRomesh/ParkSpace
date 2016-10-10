@@ -11,12 +11,25 @@ mongoose.connect(db);
 
 app.use(router);
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+   extended:true
+}));
+
 app.use('/', express.static('src'));
 
-app.get('*', function(req, res) {
-	res.sendFile(path.resolve('src', 'index.html'));
+app.get('/user',(req,res) => {
+	    res.json({
+				name:'Tharaka',
+				age:23
+			});
 });
 
+app.post('/user',(req,res) => {
+	    res.json(
+          req.body
+			);
+});
 
 app.listen(PORT, () => {
 	console.log('server running on port', PORT);
