@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "parking app",
   "main": "index.js",
-   "scripts": {
-    "server": "nodemon --watch server --exec babel-node -- server/index.js",
+  "scripts": {
+    "start": "nodemon --watch server --exec babel-node -- server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,8 +13,8 @@
     "react",
     "redux"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Tharaka Romesh",
+  "license": "MIT",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.16.0",
@@ -29,8 +29,18 @@
     "webpack-hot-middleware": "^2.13.0"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "mongoose": "^4.6.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TRomesh/ParkSpace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TRomesh/ParkSpace/issues"
+  },
+  "homepage": "https://github.com/TRomesh/ParkSpace#readme"
 }
