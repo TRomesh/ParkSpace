@@ -1,10 +1,12 @@
 import path from 'path';
 import webpack from 'webpack';
+import 'react-hot-loader/patch';
 
 export default{
   devtool: 'eval',
   entry:[
-    'webpack-hot-middleware/client',
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client?reload=true',
     path.join(__dirname,'client/index.js')],
   output:{
     path:'/',

@@ -23,8 +23,8 @@ class NavigationBar extends React.Component{
     return(
       <div>
             <AppBar
-             title="Title"
-             iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+             title="ParkSpace"
+             iconElementLeft={<IconButton></IconButton>}
          iconElementRight={
           <IconMenu
             iconButtonElement={
