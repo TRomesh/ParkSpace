@@ -39,6 +39,7 @@ class NavigationBar extends React.Component{
           </IconMenu>
         }
       />
+      {this.props.children}
       </div>
     );
   }
