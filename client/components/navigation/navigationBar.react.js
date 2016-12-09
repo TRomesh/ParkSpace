@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
+import {Link} from 'react-router'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 class NavigationBar extends React.Component{
@@ -33,7 +34,7 @@ class NavigationBar extends React.Component{
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
           >
-            <MenuItem primaryText="Refresh" />
+            <Link to="about"><MenuItem primaryText="Refresh" /></Link>
             <MenuItem primaryText="Help" />
             <MenuItem primaryText="Sign out" />
           </IconMenu>
