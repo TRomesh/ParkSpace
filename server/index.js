@@ -8,6 +8,7 @@ import webpack from 'webpack';
 import webpackmiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
+import regusers from './models/regusers.model';
 
 const cross = cros();
 const app = express();
@@ -59,7 +60,19 @@ app.post('/user',(req,res) => {
 });
 
 app.post('/signup',(req,res)=>{
-
+  let newuser = new regusers();
+  newuser.fname=req.body.fname;
+  newuser.lname=req.body.lname;
+  newuser.uname=req.body.uname;
+  newuser.email=req.body.email;
+  newuser.password=req.body.password;
+  newuser.save(function (err,user) {
+    if (err) {
+      res.send('error saving book '+err);
+    }else {
+     res.json(user);
+    }
+  });
 });
 
 

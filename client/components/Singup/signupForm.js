@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import {Link} from 'react-router';
+import axios from 'axios';
 
 const stylep = {
   margin: 20
@@ -25,6 +26,22 @@ class SignupForm extends React.Component{
   constructor(props,contex){
      super(props,contex);
 
+  }
+
+  singUp(){
+      axios.post('/user', {
+        fname:'',
+        lname:'',
+        uname:'',
+        email:'',
+        password:''
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render(){
