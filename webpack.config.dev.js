@@ -24,6 +24,10 @@ export default{
         test:/\.js$/,
         include:path.join(__dirname,'client'),
         loaders: ['react-hot-loader/webpack', 'babel']
+      },
+      {
+        test: /\.jpe?g$|\.gif$|\.svg$|\.png$/i,
+        loader: 'file-loader?name=[name].[ext]'
       }
     ]
   },

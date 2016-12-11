@@ -1,12 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import passport from 'passport';
+import cros from 'cors';
 import path from 'path';
 import webpack from 'webpack';
 import webpackmiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 
+const cross = cros();
 const app = express();
 const router = express.Router();
 const port =3000;
@@ -22,7 +25,7 @@ app.use(webpackmiddleware(compile,{
 }));
 
 app.use(webpackHotMiddleware(compile));
-
+app.use(cross);
 app.use(router);
 
 app.use(bodyParser.json());
@@ -30,8 +33,16 @@ app.use(bodyParser.urlencoded({
    extended:true
 }));
 
+
+
 app.get('/*',(req,res) => {
    res.sendFile(path.join(__dirname,'./index.html'));
+});
+
+app.post('/login',
+    passport.authenticate('local',{ successRedirect: '/',failureRedirect: '/login'}),
+    (req,res)=>{
+
 });
 
 app.get('/user',(req,res) => {
@@ -46,5 +57,11 @@ app.post('/user',(req,res) => {
           req.body
 			);
 });
+
+app.post('/signup',(req,res)=>{
+
+});
+
+
 
 app.listen(port,()=> console.log('Running on port: '+port));
