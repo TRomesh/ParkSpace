@@ -21,6 +21,22 @@ const style = {
   display: 'inline-block',
 };
 
+ let validateStatusText = (textStatus) => {
+
+  if (textStatus.length > 250) {
+    return {
+            error: '*search is too long',
+          };
+  }  else if (textStatus.length == 0) {
+    console.log('empty');
+    return {
+            error: '*search cannot be empty',
+          };
+  }  else {
+    return true;
+  }
+};
+
 class SignupForm extends React.Component{
 
   constructor(props,contex){
