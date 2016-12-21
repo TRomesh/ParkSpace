@@ -29,12 +29,13 @@ class SignupForm extends React.Component{
   }
 
   singUp(){
-      axios.post('/user', {
-        fname:'',
-        lname:'',
-        uname:'',
-        email:'',
-        password:''
+    console.log('calling');
+      axios.post('http://localhost:3000/signup', {
+        fname:'Madushika',
+        lname:'Perera',
+        uname:'moana',
+        email:'lmp@gmail.com',
+        password:'123'
       })
       .then(function (response) {
         console.log(response);
@@ -54,7 +55,7 @@ class SignupForm extends React.Component{
            <TextField hintText="eg. xxxxxxx@xxx.xxx" floatingLabelText="Email"/>
            <TextField hintText="min. 6 characters" floatingLabelText="Password"/>
            <p style={stylep} className="lead">I have read and agree to the ParkSpace terms and conditions</p>
-            <RaisedButton style={styleb} label="Register"/>
+            <RaisedButton style={styleb} label="Register" onTouchTap={this.singUp}/>
          </Paper>
        </div>
     );

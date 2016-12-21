@@ -17,6 +17,8 @@ const port =3000;
 const compile=webpack(webpackConfig);
 const db='mongodb://localhost/parkspace';
 
+mongoose.Promise = global.Promise;
+
 mongoose.connect(db);
 
 app.use(webpackmiddleware(compile,{
@@ -53,13 +55,9 @@ app.get('/user',(req,res) => {
 			});
 });
 
-app.post('/user',(req,res) => {
-	    res.json(
-          req.body
-			);
-});
 
 app.post('/signup',(req,res)=>{
+  console.log('adding new user');
   let newuser = new regusers();
   newuser.fname=req.body.fname;
   newuser.lname=req.body.lname;

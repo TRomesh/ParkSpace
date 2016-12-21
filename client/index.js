@@ -43,32 +43,3 @@ if (module.hot) {
     );
   });
 }
-
-
-
-
-
-
-
-// const App = () => (
-//   <MuiThemeProvider>
-//     <Router history={browserHistory} routes={routes} />
-//   </MuiThemeProvider>
-// );
-//
-// render(<App/>,document.getElementById('app'));
-//
-// if (module.hot) {
-//   module.hot.accept('./components/App', () => {
-//     const NextApp = require('./components/App').default;
-//     render(
-//       <AppContainer>
-//       <MuiThemeProvider>
-//         <NextApp/>
-//       </MuiThemeProvider>
-//       </AppContainer>
-//       ,
-//       document.getElementById('app')
-//     );
-//   });
-// }
