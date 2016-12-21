@@ -5,8 +5,8 @@
 
   npm install -g nodemon.
 
-  npm install.
-
   cd ParkSpace.
+
+  npm install.
 
   npm start.
