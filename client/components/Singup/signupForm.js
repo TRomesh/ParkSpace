@@ -60,7 +60,7 @@ class SignupForm extends React.Component{
   }
 
   clearData(){
-    
+
   }
 
   render(){

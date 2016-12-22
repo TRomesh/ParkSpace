@@ -21,9 +21,9 @@ export default{
   module:{
     loaders:[
       {
-        test:/\.js?$/,
+        test:/\.js$/,
         include:path.join(__dirname,'client'),
-        loaders: ['react-hot-loader/webpack', 'babel-loader']
+        loaders: ['react-hot-loader/webpack', 'babel']
       },
       {
         test: /\.jpe?g$|\.gif$|\.svg$|\.png$/i,

@@ -42,20 +42,6 @@ app.get('/*',(req,res) => {
    res.sendFile(path.join(__dirname,'./index.html'));
 });
 
-app.post('/login',
-    passport.authenticate('local',{ successRedirect: '/',failureRedirect: '/login'}),
-    (req,res)=>{
-
-});
-
-app.get('/user',(req,res) => {
-	    res.json({
-				name:'Tharaka',
-				age:23
-			});
-});
-
-
 app.post('/user',(req,res)=>{
   console.log('adding new user');
   let newuser = new regusers();
@@ -73,6 +59,13 @@ app.post('/user',(req,res)=>{
   });
 });
 
+
+app.get('/user',(req,res) => {
+	    res.json({
+				name:'Tharaka',
+				age:23
+			});
+});
 
 
 app.listen(port,()=> console.log('Running on port: '+port));
