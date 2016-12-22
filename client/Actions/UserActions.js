@@ -4,10 +4,12 @@ import axios from 'axios';
 
 export default {
    AddUser(sentence){
-     axios.get('http://localhost:3000/signup'+sentence).then((response)=>{
+     axios.post('http://localhost:3000/user'+sentence).then((response)=>{
         dispatch({ actionType: AppConstants.ADD_DATA,data:response.data});
        }).catch((err)=>{
           console.log(err);
       });
+
+ }
 
 }

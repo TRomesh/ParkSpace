@@ -56,7 +56,7 @@ app.get('/user',(req,res) => {
 });
 
 
-app.post('/signup',(req,res)=>{
+app.post('/user',(req,res)=>{
   console.log('adding new user');
   let newuser = new regusers();
   newuser.fname=req.body.fname;
