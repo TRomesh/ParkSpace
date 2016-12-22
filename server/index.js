@@ -61,10 +61,15 @@ app.post('/user',(req,res)=>{
 
 
 app.get('/user',(req,res) => {
-	    res.json({
-				name:'Tharaka',
-				age:23
-			});
+    let newuser = new regusers();
+    newuser.find({}).exec((err,user) => {
+      if(err){
+         res.send('Erorr '+err);
+      }else {
+         res.json(user);
+      }
+    });
+
 });
 
 

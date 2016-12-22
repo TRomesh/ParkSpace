@@ -57,6 +57,7 @@ class SignupForm extends React.Component{
      }
 
      UserAction.AddUser(newUser);
+    //  UserAction.GetUser();
   }
 
   clearData(){
