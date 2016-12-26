@@ -9,6 +9,7 @@ import webpackmiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 import regusers from './models/regusers.model';
+import userRouter from './routes/UserRouter';
 
 const cross = cros();
 const app = express();
@@ -42,21 +43,9 @@ app.get('/*',(req,res) => {
    res.sendFile(path.join(__dirname,'./index.html'));
 });
 
-app.post('/login',
-    passport.authenticate('local',{ successRedirect: '/',failureRedirect: '/login'}),
-    (req,res)=>{
+userRouter(app);
 
-});
-
-app.get('/user',(req,res) => {
-	    res.json({
-				name:'Tharaka',
-				age:23
-			});
-});
-
-
-app.post('/signup',(req,res)=>{
+app.post('/user',(req,res)=>{
   console.log('adding new user');
   let newuser = new regusers();
   newuser.fname=req.body.fname;
@@ -73,6 +62,18 @@ app.post('/signup',(req,res)=>{
   });
 });
 
+
+app.get('/user',(req,res) => {
+    let newuser = new regusers();
+    newuser.find({}).exec((err,user) => {
+      if(err){
+         res.send('Erorr '+err);
+      }else {
+         res.json(user);
+      }
+    });
+
+});
 
 
 app.listen(port,()=> console.log('Running on port: '+port));
