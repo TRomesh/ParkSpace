@@ -1,6 +1,3 @@
 module.exports = {
-    jwtSecret: "MyS3cr3tK3Y",
-    jwtSession: {
-        session: false
-    }
+   secret:'s1wwewfewdvddsko232ew32wqsxwfcvccsd'
 };
