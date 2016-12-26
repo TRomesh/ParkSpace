@@ -6,7 +6,7 @@ export default {
 
    AddUser(user) {
      console.log('action post');
-     axios.post('http://localhost:3000/user',user).then((response)=>{
+     axios.post('http://localhost:3000/signup',user).then((response)=>{
        console.log(response);
         dispatch({ actionType: AppConstants.ADD_USER,data:response.data});
        }).catch((err)=>{

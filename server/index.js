@@ -9,6 +9,7 @@ import webpackmiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 import regusers from './models/regusers.model';
+import userRouter from './routes/UserRouter';
 
 const cross = cros();
 const app = express();
@@ -41,6 +42,8 @@ app.use(bodyParser.urlencoded({
 app.get('/*',(req,res) => {
    res.sendFile(path.join(__dirname,'./index.html'));
 });
+
+userRouter(app);
 
 app.post('/user',(req,res)=>{
   console.log('adding new user');
