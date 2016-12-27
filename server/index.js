@@ -39,11 +39,10 @@ app.use(bodyParser.urlencoded({
 
 app.use('/', express.static(__dirname));
 
+Router(app);
+
 app.get('*',(req,res) => {
    res.sendFile(path.resolve(__dirname,'./index.html'));
 });
-
-Router(router);
-
 
 app.listen(port,()=> console.log('Running on port: '+port));
