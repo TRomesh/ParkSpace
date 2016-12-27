@@ -1,6 +1,7 @@
 import User from '../models/regusers.model';
 import jwt from 'jwt-simple';
 import config from '../config';
+import bcrypt from 'bcrypt-nodejs';
 
 let tokenForUser = (user) =>{
     const timpestamp = new Date().getTime();
