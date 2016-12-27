@@ -9,7 +9,7 @@ import webpackmiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 import regusers from './models/regusers.model';
-import userRouter from './routes/UserRouter';
+import Router from './routes/UserRouter';
 
 const cross = cros();
 const app = express();
@@ -37,43 +37,13 @@ app.use(bodyParser.urlencoded({
    extended:true
 }));
 
+app.use('/', express.static(__dirname));
 
-
-app.get('/*',(req,res) => {
-   res.sendFile(path.join(__dirname,'./index.html'));
+app.get('*',(req,res) => {
+   res.sendFile(path.resolve(__dirname,'./index.html'));
 });
 
-userRouter(app);
-
-app.post('/user',(req,res)=>{
-  console.log('adding new user');
-  let newuser = new regusers();
-  newuser.fname=req.body.fname;
-  newuser.lname=req.body.lname;
-  newuser.uname=req.body.uname;
-  newuser.email=req.body.email;
-  newuser.password=req.body.password;
-  newuser.save(function (err,user) {
-    if (err) {
-      res.send('error saving book '+err);
-    }else {
-     res.json(user);
-    }
-  });
-});
-
-
-app.get('/user',(req,res) => {
-    let newuser = new regusers();
-    newuser.find({}).exec((err,user) => {
-      if(err){
-         res.send('Erorr '+err);
-      }else {
-         res.json(user);
-      }
-    });
-
-});
+Router(router);
 
 
 app.listen(port,()=> console.log('Running on port: '+port));
