@@ -10,10 +10,10 @@ let tokenForUser = (user) =>{
 
 let signup = (req,res,next) => {
 
-    const fname = req.body.fname
-    const lname = req.body.lname
-    const uname = req.body.uname
-    const email = req.body.email
+    const fname = req.body.fname;
+    const lname = req.body.lname;
+    const uname = req.body.uname;
+    const email = req.body.email;
     const password =req.body.password;
 
     if(!email || !password){
