@@ -6,6 +6,7 @@ import LoginContainer from './Login/loginContainer';
 import About from './About/AboutPage.react';
 import SignupForm from './Singup/signupForm';
 import mapContainer from './Parkmap/mapContainer';
+import newsFeedContainer from './Newsfeeds/newsFeedContainer';
 
 export default (
   <Route path="/" component={NavigationBar}>
@@ -14,5 +15,6 @@ export default (
     <Route path="signup" component={SignupForm} />
     <Route path="about" component={About} />
     <Route path="map" component={mapContainer}/>
+    <Route path="newsfeeds" component={newsFeedContainer}/>
   </Route>
 );

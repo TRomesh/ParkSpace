@@ -3,6 +3,7 @@ import Paper from 'material-ui/Paper';
 import AutoComplete from 'material-ui/AutoComplete';
 
 
+
 class mapSidebar extends React.Component{
 
     constructor(props,context){
@@ -32,6 +33,7 @@ class mapSidebar extends React.Component{
             <div>
                 <AutoComplete
                   hintText="Destinantion"
+                  filter={AutoComplete.fuzzyFilter}
                   dataSource={this.state.dataSource}
                   onUpdateInput={this.handleUpdateInput}
                 />
