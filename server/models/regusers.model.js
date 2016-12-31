@@ -26,9 +26,18 @@ regUsers.pre('save',function (next){
             //overwrite plain text password with encrypted password
             user.password = hash;
             next();
-       });
     })
 });
+
+});
+
+
+regUsers.methods.comparePassword = function (candidatePassword,callback){
+   bcrypt.compare(candidatePassword,this.password,function (err,isMatch){
+      if(err){ return callback(err); }
+      callback(null,isMatch);
+   });
+};
 
 
 module.exports = mongoose.model('regusers',regUsers);

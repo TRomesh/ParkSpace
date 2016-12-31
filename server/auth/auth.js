@@ -8,6 +8,13 @@ let tokenForUser = (user) =>{
     return jwt.encode({sub:user.id,iat:timpestamp},config.secret);
 }
 
+
+let login = (req,res,next) => {
+      //User has already had their email and password auth'd
+      //We just need to give them a token
+      res.send({token:tokenForUser(req.user)});
+}
+
 let signup = (req,res,next) => {
 
     const fname = req.body.fname;

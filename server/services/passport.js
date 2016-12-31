@@ -16,6 +16,14 @@ const localLogin = new LocalStrategy(localOption,(email,password,done)=>{
     User.findOne({email:email},(err,user)=>{
        if(err){ return done(err);}
        if(!user){ return done(null,false);}
+
+       // compare Password - is 'password' equal to user.password
+       user.comparePassword(password,function(err,isMatch){
+          if(err){ return done(err); }
+          if(!isMatch) { return done(null,false); }
+
+          return done(null,user);
+       });
     });
 });
 
@@ -43,3 +51,4 @@ const jwtLogin = new JwtStrategy(jwtOptions,(payload,done)=>{
 });
 
 passport.use(jwtLogin);
+passport.use(localLogin);

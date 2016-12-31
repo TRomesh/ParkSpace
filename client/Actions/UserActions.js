@@ -21,6 +21,16 @@ export default {
         }).catch((err)=>{
            console.log(err);
        });
-     }
+     },
+     UserLogin(user) {
+       console.log('action post');
+       axios.post('http://localhost:3000/login',user).then((response)=>{
+         console.log(response);
+          dispatch({ actionType: AppConstants.LOGIN_USER,data:response.data});
+         }).catch((err)=>{
+            console.log(err);
+        });
+      },
+
 
 }
