@@ -81,8 +81,8 @@ class Login extends React.Component{
     return(
        <div style={backgroundstyle}>
           <Paper style={style} zDepth={2} className="row">
-           <TextField ref="email" hintText="Email" floatingLabelText="Email"/>
-           <TextField ref="password" hintText="" floatingLabelText="Password"/>
+           <TextField ref="Email" hintText="Email" floatingLabelText="Email"/>
+           <TextField ref="Pword" hintText="" floatingLabelText="Password"/>
            <br/>
            <RaisedButton style={styleb} label="Login" onTouchTap={this.login}/>
          </Paper>

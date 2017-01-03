@@ -12,7 +12,7 @@ const user = (app) => {
         res.send({hi:'there'});
     });
 
-    app.post('/login',requireLogin,Authentication.signup)
+    app.post('/login',requireLogin,Authentication.login);
 
     app.post('/signup',Authentication.signup);
 }

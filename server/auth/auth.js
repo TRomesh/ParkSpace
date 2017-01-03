@@ -34,7 +34,7 @@ let signup = (req,res,next) => {
         }
         //If a user with email does exists, return an erorr
         if(user){
-          return res.status(422).send({error:'Email is in use'})
+          return res.status(422).send({error:'Email is in use'});
         }
         //if user with email does not exists,create and save user
         const newuser = new User({
@@ -48,7 +48,7 @@ let signup = (req,res,next) => {
 
         newuser.save((err)=>{
             if(err){ return next(err);}
-            res.json({token:tokenForUser(newuser)})
+            res.json({token:tokenForUser(newuser)});
             // res.json({success:'true'});
         });
 
@@ -59,3 +59,4 @@ let signup = (req,res,next) => {
 }
 
 module.exports.signup = signup;
+module.exports.login = login;
