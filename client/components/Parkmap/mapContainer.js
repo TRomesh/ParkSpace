@@ -1,6 +1,10 @@
 import React from 'react';
 import MapSidebar from './mapSidebar';
 import Map from './map';
+import Paper from 'material-ui/Paper';
+import ParkGrid from './parkGrids';
+import MapBN from './mapBottomNavigation';
+
 
 const center = {
     lat: 6.9147,
@@ -23,10 +27,14 @@ class mapContainer extends React.Component{
 
     render(){
       return(
-        <div>
-        <h1>MAP</h1>
-        <Map center={center} markers={marker}/>
-        <MapSidebar/>
+        <div  className="container-fluid">
+          <div  className="row row-list">
+            <MapSidebar className="col-md-6 col-sm-6 col-lg-6"/>
+              <div className="col-md-6 col-sm-6 col-lg-6" >
+                <Map center={center} markers={marker} />
+                <MapBN/>
+              </div>
+          </div>
         </div>
       );
     }

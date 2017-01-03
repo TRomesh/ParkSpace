@@ -2,9 +2,8 @@ import React from 'react';
 import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
 
 const mapStyle={
-  width:600,
-  height:600,
-  background:'red'
+  width:'100%',
+  height:600
 };
 
 class map extends React.Component{
