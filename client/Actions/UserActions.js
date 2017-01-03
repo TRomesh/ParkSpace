@@ -25,7 +25,8 @@ export default {
      UserLogin(user) {
        console.log('action post');
        axios.post('http://localhost:3000/login',user).then((response)=>{
-         console.log(response);
+         console.log(response.data.token);
+         localStorage.setItem('token',response.data.token);
           // dispatch({ actionType: AppConstants.LOGIN_USER,data:response.data});
          }).catch((err)=>{
             console.log(err);
