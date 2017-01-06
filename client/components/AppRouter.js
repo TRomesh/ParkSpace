@@ -9,6 +9,7 @@ import parkSignupForm from './Singup/parkSignupForm';
 import mapContainer from './Parkmap/mapContainer';
 import newsFeedContainer from './Newsfeeds/newsFeedContainer';
 import Error404 from './Notifications/Error404';
+import chatContainer from './chat/chatContainer';
 
 export default (
   <Route path="/" component={NavigationBar}>
@@ -20,6 +21,7 @@ export default (
     <Route path="about" component={About} />
     <Route path="map" component={mapContainer}/>
     <Route path="newsfeeds" component={newsFeedContainer}/>
+    <Route path="chat" component={chatContainer}/>
     <Route path="*" component={Error404}/>
   </Route>
 );

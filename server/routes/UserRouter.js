@@ -8,7 +8,7 @@ const requireLogin = passport.authenticate('local',{session:false});
 
 const user = (app) => {
 
-    app.get('/main',requireAuth,function (req,res){
+    app.get('/user',requireAuth,function (req,res){
         res.send({hi:'there'});
     });
 
