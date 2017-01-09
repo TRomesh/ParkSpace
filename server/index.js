@@ -23,6 +23,9 @@ const port =3000;
 const compile=webpack(webpackConfig);
 const db='mongodb://localhost/parkspace';
 
+let users = [];
+let sockets = {};
+
 mongoose.Promise = global.Promise;
 
 mongoose.connect(db);
@@ -42,13 +45,15 @@ app.use(bodyParser.urlencoded({
    extended:true
 }));
 
+
+server.listen(port,()=> console.log('Running on port: '+port));
+
 app.use('/', express.static(__dirname));
 
 Router(app);
 Chat(app,io);
 
+
 app.get('*',(req,res) => {
    res.sendFile(path.resolve(__dirname,'./index.html'));
 });
-
-app.listen(port,()=> console.log('Running on port: '+port));

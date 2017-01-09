@@ -11,21 +11,17 @@ const chat = (app,io) => {
 
   io.on('connection', (socket) => {
 
+          console.log('connected');
 
-          socket.on('ding', () => {
-              console.log('connected');
+          socket.on('message', (msg) => {
+              console.log(msg);
           });
 
           socket.on('disconnect', () => {
               console.log('disconnected');
           });
 
-          socket.on('userChat', (data) => {
-
-          });
-
   });
-
 }
 
 export default chat;
