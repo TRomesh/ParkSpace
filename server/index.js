@@ -23,8 +23,6 @@ const port =3000;
 const compile=webpack(webpackConfig);
 const db='mongodb://localhost/parkspace';
 
-let users = [];
-let sockets = {};
 
 mongoose.Promise = global.Promise;
 
