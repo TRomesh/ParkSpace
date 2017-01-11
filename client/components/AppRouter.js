@@ -10,11 +10,12 @@ import mapContainer from './Parkmap/mapContainer';
 import newsFeedContainer from './Newsfeeds/newsFeedContainer';
 import Error404 from './Notifications/Error404';
 import chatContainer from './chat/chatContainer';
+import homeContainer from './Home/homeContainer';
 
 export default (
   <Route path="/" component={NavigationBar}>
     <IndexRoute component={LoginContainer} />
-    <Route path="home" component={greetings} />
+    <Route path="home" component={homeContainer} />
     <Route path="signup" component={SignupForm}>
       <Route path="signup/parkowner" component={SignupForm}/>
     </Route>

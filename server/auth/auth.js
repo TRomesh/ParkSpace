@@ -54,8 +54,6 @@ let signup = (req,res,next) => {
 
 
     });
-    //
-
 }
 
 module.exports.signup = signup;

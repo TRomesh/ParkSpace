@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const chatThreads = new Schema({
      participants:[{users:String}],
-     date: { type: Date, default: Date.now },
-
+     date: { type: Date, default: Date.now }
 });
 
 

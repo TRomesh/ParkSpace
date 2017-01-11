@@ -1,14 +1,9 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import LoginScreenImg from '../../media/images/login_screen.jpg';
-import avata1 from '../../media/images/avatars/boy-1.svg';
+import MapComponent from './mapComponent';
 
-const compoStyle = {
-    width:500
-};
-
-class feedsComponent extends React.Component{
+class feedsMapComponent extends React.Component{
 
     constructor(props,context){
        super(props,context);
@@ -21,16 +16,16 @@ class feedsComponent extends React.Component{
     render(){
       return(
         <div>
-            <Card zDepth={2} style={compoStyle}>
+            <Card>
               <CardHeader
                 title={this.props.name}
                 subtitle={this.props.title}
                 avatar={this.props.avatar}
               />
               <CardMedia
-                overlay={<CardTitle title={this.props.posttitle} subtitle={this.props.postsubtitle} />}
+                overlay={<CardTitle title={this.props.parkname}/>}
               >
-                <img src={this.props.postimg} />
+                <MapComponent center={this.props.center}/>
               </CardMedia>
               <CardTitle title={this.props.posttitle} subtitle={this.props.postsubtitle}/>
               <CardText>
@@ -47,4 +42,4 @@ class feedsComponent extends React.Component{
 
 }
 
-export default feedsComponent;
+export default feedsMapComponent;
