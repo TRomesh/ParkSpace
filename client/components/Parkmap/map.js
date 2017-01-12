@@ -3,7 +3,8 @@ import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
 
 const mapStyle={
   width:'100%',
-  height:600
+  position: 'relative',
+  height: '550px'
 };
 
 class map extends React.Component{

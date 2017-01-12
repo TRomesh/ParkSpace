@@ -5,7 +5,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import TimePicker from 'material-ui/TimePicker';
 
 const sidebarContentStyle = {
-  padding:20
+  padding:30
 }
 
 const mapContainerStyle ={
@@ -23,6 +23,16 @@ class mapSidebar extends React.Component{
          value12: null
        };
 
+    }
+
+    carQuery = () => {
+      let carquery = new CarQuery();
+      carquery.init();
+      carquery.setFilters( {sold_in_us:false} );
+      carquery.year_select_min=1990;
+      carquery.year_select_max=1999;
+      var searchArgs =({default_search_text:"Keyword Search"});
+      carquery.initSearchInterface(searchArgs);
     }
 
     handleChangeTimePicker12 = (event, date) => {

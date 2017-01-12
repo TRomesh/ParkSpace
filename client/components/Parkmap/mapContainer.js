@@ -11,7 +11,7 @@ const mapContainerStyle ={
 }
 
 const mapContainerStylediv = {
-  width:'100%'
+  width:'110%'
 }
 
 const center = {
@@ -41,7 +41,8 @@ class mapContainer extends React.Component{
                 <MapSidebar/>
               </div>
               <div className="col-md-8 col-xs-8 col-lg-8 col-sm-8" style={mapContainerStyle}>
-                  <Map center={center} markers={marker} />
+                  <Map center={center} markers={marker} className="col-md-12"/>
+                  <div className="w-100"></div>
                   <MapBN/>
               </div>
           </div>
