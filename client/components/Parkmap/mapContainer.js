@@ -5,6 +5,14 @@ import Paper from 'material-ui/Paper';
 import ParkGrid from './parkGrids';
 import MapBN from './mapBottomNavigation';
 
+const mapContainerStyle ={
+  padding:0,
+  margin:0
+}
+
+const mapContainerStylediv = {
+  width:'100%'
+}
 
 const center = {
     lat: 6.9147,
@@ -27,18 +35,19 @@ class mapContainer extends React.Component{
 
     render(){
       return(
-        <div  className="container-fluid">
-          <div  className="row row-list">
-            <MapSidebar className="col-md-6 col-sm-6 col-lg-6"/>
-              <div className="col-md-6 col-sm-6 col-lg-6" >
-                <Map center={center} markers={marker} />
-                <MapBN/>
+        <div className="container" style={mapContainerStyle}>
+          <div className="row" style={mapContainerStylediv}>
+              <div className="col-md-4 col-xs-4 col-lg-4 col-sm-4" style={mapContainerStyle}>
+                <MapSidebar/>
+              </div>
+              <div className="col-md-8 col-xs-8 col-lg-8 col-sm-8" style={mapContainerStyle}>
+                  <Map center={center} markers={marker} />
+                  <MapBN/>
               </div>
           </div>
         </div>
       );
     }
-
 }
 
 export default mapContainer;

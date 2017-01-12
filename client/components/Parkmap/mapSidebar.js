@@ -4,6 +4,14 @@ import Divider from 'material-ui/Divider';
 import AutoComplete from 'material-ui/AutoComplete';
 import TimePicker from 'material-ui/TimePicker';
 
+const sidebarContentStyle = {
+  padding:20
+}
+
+const mapContainerStyle ={
+  padding:0,
+  margin:0
+}
 
 
 class mapSidebar extends React.Component{
@@ -36,7 +44,13 @@ class mapSidebar extends React.Component{
       return(
         <div>
           <Paper zDepth={2}>
-            <div>
+            <div style={sidebarContentStyle}>
+                <AutoComplete
+                  hintText="Destinantion"
+                  filter={AutoComplete.fuzzyFilter}
+                  dataSource={this.state.dataSource}
+                  onUpdateInput={this.handleUpdateInput}
+                />
                 <AutoComplete
                   hintText="Destinantion"
                   filter={AutoComplete.fuzzyFilter}
@@ -49,9 +63,8 @@ class mapSidebar extends React.Component{
                 value={this.state.value12}
                 onChange={this.handleChangeTimePicker12}
               />
-              <Divider inset={true} />
-              
             </div>
+                <Divider inset={true} />
           </Paper>
         </div>
       );
