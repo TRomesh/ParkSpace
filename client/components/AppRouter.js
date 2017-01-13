@@ -12,6 +12,14 @@ import Error404 from './Notifications/Error404';
 import chatContainer from './chat/chatContainer';
 import homeContainer from './Home/homeContainer';
 
+
+let requireAuth = (nextState, replac) =>{
+  const token = localStorage.getItem('token');
+  if (!token){
+
+  }
+}
+
 export default (
   <Route path="/" component={NavigationBar}>
     <IndexRoute component={LoginContainer} />

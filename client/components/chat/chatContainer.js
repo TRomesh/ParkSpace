@@ -31,11 +31,15 @@ let chat = [{
   date:'232323'
 }];
 
+
+
 class chatContainer extends React.Component{
 
   constructor(props,context){
      super(props,context);
-     this.state = {};
+     this.state = {
+
+     };
   }
 
   chatThreads = () =>{
@@ -49,6 +53,7 @@ class chatContainer extends React.Component{
             <List>
               {this.chatThreads()}
             </List>
+            <Chatbox/>
          </div>
      );
    }

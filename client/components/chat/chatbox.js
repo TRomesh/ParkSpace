@@ -24,7 +24,6 @@ const styleButton = {
     float:'right'
 };
 
-
 class chatContainer extends React.Component{
 
     constructor(props){
@@ -36,8 +35,11 @@ class chatContainer extends React.Component{
 
     chatmessage = () => {
         let message = this.refs.chattext.getValue();
-        socket.emit('message', message);
-        console.log('emmited');
+        if(message.length !== 0){
+          socket.emit('message', message);
+          console.log('emmited');
+
+        }
 
     }
 

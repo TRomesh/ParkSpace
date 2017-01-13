@@ -14,6 +14,8 @@ import Avatar3 from '../../media/images/avatars/boy-3.svg';
 import Avatar4 from '../../media/images/avatars/boy-4.svg';
 import Avatar5 from '../../media/images/avatars/boy-5.svg';
 
+ let socket = io.connect('http://localhost:8081');
+
 
 class ListExampleMessages extends React.Component{
 
