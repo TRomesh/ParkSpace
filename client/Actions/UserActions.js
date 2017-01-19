@@ -1,6 +1,7 @@
 import AppConstants from '../Constants/AppConstants';
 import {dispatch,register} from '../Dispatcher/Dispatcher';
 import axios from 'axios';
+import { browserHistory } from 'react-router'
 
 axios.defaults.headers.common['X-Mashape-Key'] = localStorage.getItem('token');
 
@@ -29,6 +30,7 @@ export default {
        axios.post('http://localhost:3000/login',user).then((response)=>{
          console.log(response.data.token);
          localStorage.setItem('token',response.data.token);
+         browserHistory.push('/home');
           // dispatch({ actionType: AppConstants.LOGIN_USER,data:response.data});
          }).catch((err)=>{
             console.log(err);
