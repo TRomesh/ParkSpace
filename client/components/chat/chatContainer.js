@@ -49,7 +49,6 @@ class chatContainer extends React.Component{
    render(){
      return(
          <div className="row">
-            {/* <Chatbox/>*/}
             <List>
               {this.chatThreads()}
             </List>

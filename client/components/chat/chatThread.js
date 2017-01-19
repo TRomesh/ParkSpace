@@ -6,6 +6,7 @@ import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import io from 'socket.io-client';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar1 from '../../media/images/avatars/boy-1.svg';
@@ -14,7 +15,7 @@ import Avatar3 from '../../media/images/avatars/boy-3.svg';
 import Avatar4 from '../../media/images/avatars/boy-4.svg';
 import Avatar5 from '../../media/images/avatars/boy-5.svg';
 
- let socket = io.connect('http://localhost:8081');
+ const socket = io.connect('http://localhost:3000');
 
 
 class ListExampleMessages extends React.Component{
@@ -23,6 +24,7 @@ class ListExampleMessages extends React.Component{
        super(props,context);
        this.state = {};
     }
+
         render(){
          return(
           <div>
