@@ -12,25 +12,33 @@ import Error404 from './Notifications/Error404';
 import chatContainer from './chat/chatContainer';
 import homeContainer from './Home/homeContainer';
 
-
-let requireAuth = (nextState, replac) =>{
+let hasToken = () =>{
   const token = localStorage.getItem('token');
-  if (!token){
+  return (token == undefined);
+}
 
+
+let requireAuth = (nextState, replace) =>{
+
+  if (hasToken()){
+    replace({
+       pathname: '/',
+       state: { nextPathname: nextState.location.pathname }
+     });
   }
 }
 
 export default (
   <Route path="/" component={NavigationBar}>
     <IndexRoute component={LoginContainer} />
-    <Route path="home" component={homeContainer} />
+    <Route path="home" component={homeContainer} onEnter={requireAuth}/>
     <Route path="signup" component={SignupForm}>
       <Route path="signup/parkowner" component={SignupForm}/>
     </Route>
     <Route path="about" component={About} />
-    <Route path="map" component={mapContainer}/>
-    <Route path="newsfeeds" component={newsFeedContainer}/>
-    <Route path="chat" component={chatContainer}/>
+    <Route path="map" component={mapContainer} onEnter={requireAuth} />
+    <Route path="newsfeeds" component={newsFeedContainer} onEnter={requireAuth} />
+    <Route path="chat" component={chatContainer} onEnter={requireAuth} />
     <Route path="*" component={Error404}/>
   </Route>
 );
