@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MapsPlace from 'material-ui/svg-icons/maps/place';
 import Badge from 'material-ui/Badge';
+import ReactTooltip from 'react-tooltip'
 import ChatIcon from 'material-ui/svg-icons/communication/message';
 
 class MessageIcon extends React.Component{
@@ -23,7 +24,7 @@ class MessageIcon extends React.Component{
   }
 
   messageList =()=>{
-    return this.state.messages.map((msg) => <MenuItem value={msg.value} primaryText={msg.text}/>);
+    return this.state.messages.map((msg,i) => <MenuItem key={i} value={msg.value} primaryText={msg.text}/>);
   }
 
   messageCount = () => {
@@ -40,13 +41,14 @@ class MessageIcon extends React.Component{
           style={{padding:0}}
         >
             <IconMenu
-                iconButtonElement={<IconButton><ChatIcon /></IconButton>}
+                iconButtonElement={<IconButton><ChatIcon data-tip="Messages" /></IconButton>}
                 anchorOrigin={{"horizontal":"right","vertical":"center"}}
                 targetOrigin={{"horizontal":"right","vertical":"top"}}
                 maxHeight={272}
                 >
                 {this.messageList()}
                 </IconMenu>
+                <ReactTooltip place="bottom" type="dark" effect="float"/>
         </Badge>
      );
    }
