@@ -1,5 +1,6 @@
 import React,{PropTypes} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import LinearProgress from 'material-ui/LinearProgress';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import LoginScreenImg from '../../media/images/login_screen.jpg';
@@ -85,6 +86,7 @@ class Login extends React.Component{
            <TextField ref="Pword" hintText="" floatingLabelText="Password"/>
            <br/>
            <RaisedButton style={styleb} label="Login" onTouchTap={this.login}/>
+           <LinearProgress mode="indeterminate" />
          </Paper>
      </div>
     );

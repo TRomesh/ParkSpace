@@ -9,8 +9,15 @@ import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
 import {Link} from 'react-router'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import Badge from 'material-ui/Badge';
-import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
+import NotificationsIcon from './notificationIcon';
+import MessageIcon from './messageIcon';
+
+
+let isLogged = () =>{
+  const token = localStorage.getItem('token');
+  return !(token == undefined);
+}
+
 
 class NavigationBar extends React.Component{
 
@@ -36,39 +43,23 @@ class NavigationBar extends React.Component{
              title="ParkSpace"
              iconElementLeft={<IconButton></IconButton>}
              iconElementRight={
+               isLogged() ?
                <div id="notif">
-               <Badge
-                  badgeContent={10}
-                  secondary={false}
-                  badgeStyle={{top: 0, right: 0,height:20,width:20}}
-                  style={{padding:0}}
-                >
-                  <IconButton tooltip="Messages">
-                    <NotificationsIcon />
-                  </IconButton>
-                </Badge>
-               <Badge
-                  badgeContent={10}
-                  secondary={false}
-                  badgeStyle={{top: 0, right: 0,height:20,width:20}}
-                  style={{padding:0}}
-                >
-                  <IconButton tooltip="Notifications">
-                    <NotificationsIcon />
-                  </IconButton>
-                </Badge>
-                <IconMenu
-                  iconButtonElement={
-                    <IconButton><MoreVertIcon /></IconButton>
-                  }
-                  targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                  anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                >
-                  <MenuItem primaryText="My Account" containerElement={<Link to="about"/>}/>
-                  <MenuItem primaryText="Help" containerElement={<Link to="about"/>}/>
-                  <MenuItem primaryText="Sign out" onTouchTap={this.Signout} />
-                </IconMenu>
+               <MessageIcon/>
+               <NotificationsIcon/>
+                  <IconMenu
+                    iconButtonElement={
+                      <IconButton><MoreVertIcon /></IconButton>
+                    }
+                    targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                  >
+                      <MenuItem primaryText="My Account" containerElement={<Link to="about"/>}/>
+                      <MenuItem primaryText="Help" containerElement={<Link to="about"/>}/>
+                      <MenuItem primaryText="Sign out" onTouchTap={this.Signout} />
+                  </IconMenu>
                 </div>
+                :''
             }
       />
       {this.props.children}
