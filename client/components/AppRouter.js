@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, Link, browserHistory,IndexRoute } from 'react-router';
-import NavigationBar from './navigation/navigationBar.react';
+import NavigationBar from './navigation/navigationBar';
 import greetings from './Login/greetings';
 import LoginContainer from './Login/loginContainer';
 import About from './About/AboutPage.react';

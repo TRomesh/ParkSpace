@@ -1,5 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import { browserHistory } from 'react-router'
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
@@ -20,25 +21,31 @@ class NavigationBar extends React.Component{
 
   }
 
+
+  Signout = () =>{
+    localStorage.clear();
+     browserHistory.push('/');
+  }
+
   render(){
     return(
       <div>
             <AppBar
              title="ParkSpace"
              iconElementLeft={<IconButton></IconButton>}
-         iconElementRight={
-          <IconMenu
-            iconButtonElement={
-              <IconButton><MoreVertIcon /></IconButton>
+             iconElementRight={
+                <IconMenu
+                  iconButtonElement={
+                    <IconButton><MoreVertIcon /></IconButton>
+                  }
+                  targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                  anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                >
+                  <MenuItem primaryText="My Account" containerElement={<Link to="about"/>}/>
+                  <MenuItem primaryText="Help" containerElement={<Link to="about"/>}/>
+                  <MenuItem primaryText="Sign out" onTouchTap={this.Signout} />
+                </IconMenu>
             }
-            targetOrigin={{horizontal: 'right', vertical: 'top'}}
-            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-          >
-            <Link to="about"><MenuItem primaryText="Refresh" /></Link>
-            <MenuItem primaryText="Help" />
-            <MenuItem primaryText="Sign out" />
-          </IconMenu>
-        }
       />
       {this.props.children}
       </div>

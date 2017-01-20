@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import 'react-hot-loader/patch';
 
 export default{
-  devtool: 'eval',
+  devtool: 'source-map',
   entry:[
     'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
