@@ -15,8 +15,10 @@ const chat = (app,io) => {
 
 
           socket.on('Userlogged', (data) => {
+            console.log(data);
               socket.username = data;
               ConnectedUser[socket.username] = socket.id;
+              console.log(ConnectedUser);
           });
 
           socket.on('message', (msg,uname) => {

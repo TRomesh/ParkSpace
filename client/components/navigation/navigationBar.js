@@ -19,6 +19,8 @@ let isLogged = () =>{
 }
 
 
+
+
 class NavigationBar extends React.Component{
 
   constructor(context){

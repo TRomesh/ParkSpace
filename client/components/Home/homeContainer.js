@@ -1,8 +1,26 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import io from 'socket.io-client';
+
+const socket = io.connect('http://localhost:3000');
+
+let isLogged = () =>{
+  const token = localStorage.getItem('token');
+  return !(token == undefined);
+}
+
+
 
 class Home extends React.Component{
+
+  LoggedUser = () => {
+   if(isLogged){
+     socket.emit('Userlogged',"Tharaka");
+   }
+ }
+ 
    render(){
+        {this.LoggedUser()}
      return(
        <div>
        <h1>Home :D</h1>

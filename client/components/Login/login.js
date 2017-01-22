@@ -52,19 +52,9 @@ class Login extends React.Component{
 
   constructor(props,contex){
      super(props,contex);
-
-  }
-
-  componentWillMount = () => {
-    UserStore.addChangeListener(this._onChange);
-  }
-
-  componentWillUnmount = () => {
-    UserStore.removeChangeListener(this._onChange);
-  }
-
-  _onChange = () => {
-
+     this.state = {
+       credentials:{email:"",password:""}
+     }
   }
 
   login = () => {
@@ -74,7 +64,7 @@ class Login extends React.Component{
         email:this.refs.Email.getValue(),
         password:this.refs.Pword.getValue()
       }
-
+      this.setState({credentials:User});
       UserAction.UserLogin(User);
   }
 
@@ -83,7 +73,7 @@ class Login extends React.Component{
        <div style={backgroundstyle}>
           <Paper style={style} zDepth={2} className="row">
            <TextField ref="Email" hintText="Email" floatingLabelText="Email"/>
-           <TextField ref="Pword" hintText="" floatingLabelText="Password"/>
+           <TextField ref="Pword" hintText="" floatingLabelText="Password" type="password" />
            <br/>
            <RaisedButton style={styleb} label="Login" onTouchTap={this.login}/>
            <LinearProgress mode="indeterminate" />
