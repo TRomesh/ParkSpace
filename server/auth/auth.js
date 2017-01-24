@@ -5,14 +5,14 @@ import bcrypt from 'bcrypt-nodejs';
 
 let tokenForUser = (user) =>{
     const timpestamp = new Date().getTime();
-    return jwt.encode({uid:user.id,iat:timpestamp,uname:user.uname},config.secret);
+    return jwt.encode({uid:user.id,iat:timpestamp},config.secret);
 }
 
 
 let login = (req,res,next) => {
       //User has already had their email and password auth'd
       //We just need to give them a token
-      res.send({token:tokenForUser(req.user)});
+      res.send({token:tokenForUser(req.user),unu:req.user.uname});
 }
 
 let signup = (req,res,next) => {

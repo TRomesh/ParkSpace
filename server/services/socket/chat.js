@@ -23,7 +23,7 @@ const chat = (app,io) => {
 
           socket.on('message', (msg,uname) => {
               console.log(msg);
-              io.sockets.connected[ConnectedUser[uname]].emit('chat', { message:msg });
+              // io.sockets.connected[ConnectedUser[uname]].emit('chat', { message:msg });
 
           });
 
@@ -32,7 +32,7 @@ const chat = (app,io) => {
           });
 
 
-          socket.on('disconnect', () => {
+          socket.on('disconnect', (uname) => {
               console.log('disconnected');
           });
 

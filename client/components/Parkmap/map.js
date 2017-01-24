@@ -1,5 +1,6 @@
 import React from 'react';
-import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
+import markz from '../../media/images/parkicon/parkavailable.svg';
+import {GoogleMapLoader, GoogleMap, Marker, InfoWindow,DistanceMatrixService} from "react-google-maps";
 
 const mapStyle={
   width:'100%',
@@ -18,14 +19,30 @@ class map extends React.Component{
 
       const mapContainer = <div style={mapStyle}></div>
 
+      let icon = {
+          url: markz, // url
+          scaledSize: new google.maps.Size(50, 50), // scaled size
+          origin: new google.maps.Point(0,0), // origin
+          anchor: new google.maps.Point(0, 0) // anchor
+      };
+
       const markers = this.props.markers.map((venue,i) =>{
           const marker ={
              position:{
                lat:venue.location.lat,
                lng:venue.location.lng
-             }
-          }
-          return <Marker key={i} {...marker}/>
+             },
+             mapTypeId: 'roadmap',
+             icon:icon,
+             label:'SLIIT',
+             clickable:true,
+             animation: google.maps.Animation.DROP,
+             zIndex:9
+          };
+
+          return <Marker key={i} {...marker}>
+            <InfoWindow title="Blabla" onTouchTap={this.click}/>
+          </Marker>;
       })
 
       return(

@@ -11,14 +11,15 @@ import {Link} from 'react-router'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NotificationsIcon from './notificationIcon';
 import MessageIcon from './messageIcon';
+import io from 'socket.io-client';
+
+const socket = io.connect('http://localhost:3000');
 
 
 let isLogged = () =>{
   const token = localStorage.getItem('token');
   return !(token == undefined);
 }
-
-
 
 
 class NavigationBar extends React.Component{
@@ -32,13 +33,27 @@ class NavigationBar extends React.Component{
 
   }
 
+  LoggedUser = () => {
+   if(isLogged){
+     socket.emit('Userlogged',localStorage.getItem('un'));
+   }
+ }
+
+ LogOffUser = () => {
+  if(isLogged){
+    socket.emit('disconnect',localStorage.getItem('un'));
+  }
+}
+
 
   Signout = () =>{
+    LogOffUser();
     localStorage.clear();
      browserHistory.push('/');
   }
 
   render(){
+    {this.LoggedUser()}
     return(
       <div>
             <AppBar
@@ -61,7 +76,7 @@ class NavigationBar extends React.Component{
                       <MenuItem primaryText="Sign out" onTouchTap={this.Signout} />
                   </IconMenu>
                 </div>
-                :''
+                :<div/>
             }
       />
       {this.props.children}

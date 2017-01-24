@@ -31,6 +31,7 @@ export default {
        axios.post('http://localhost:3000/login',user).then((response)=>{
          console.log(response.data.token);
          localStorage.setItem('token',response.data.token);
+         localStorage.setItem('un',response.data.unu);
          browserHistory.push('/home');
           // dispatch({ actionType: AppConstants.LOGIN_USER,data:response.data});
          }).catch((err)=>{

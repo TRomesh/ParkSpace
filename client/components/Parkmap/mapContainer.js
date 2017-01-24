@@ -24,6 +24,11 @@ const marker = [{
       lat: 6.9147,
       lng: 79.9733
     }
+},{
+location:{
+  lat: 6.9147,
+  lng: 79.9735
+}
 }];
 
 class mapContainer extends React.Component{
