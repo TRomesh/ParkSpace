@@ -15,15 +15,16 @@ const chat = (app,io) => {
 
 
           socket.on('Userlogged', (data) => {
-            console.log(data);
+            if(data != null){
+            console.log('user',data);
               socket.username = data;
               ConnectedUser[socket.username] = socket.id;
               console.log(ConnectedUser);
+            }
           });
 
-          socket.on('message', (msg,uname) => {
-              console.log(msg);
-              // io.sockets.connected[ConnectedUser[uname]].emit('chat', { message:msg });
+          socket.on('message', (data) => {
+              io.sockets.connected[ConnectedUser[data.usr]].emit('chat', { message:data.msg });
 
           });
 
@@ -33,7 +34,11 @@ const chat = (app,io) => {
 
 
           socket.on('disconnect', (uname) => {
-              console.log('disconnected');
+            if(uname != null){
+              if (ConnectedUser.indexOf(uname) > -1) {
+                  ConnectedUser.splice(ConnectedUser.indexOf(uname), 1);
+              }
+            }
           });
 
   });

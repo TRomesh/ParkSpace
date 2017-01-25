@@ -18,7 +18,7 @@ const socket = io.connect('http://localhost:3000');
 
 let isLogged = () =>{
   const token = localStorage.getItem('token');
-  return !(token == undefined);
+  return !(token == undefined && token == null);
 }
 
 
@@ -47,7 +47,7 @@ class NavigationBar extends React.Component{
 
 
   Signout = () =>{
-    LogOffUser();
+    this.LogOffUser();
     localStorage.clear();
      browserHistory.push('/');
   }
