@@ -4,10 +4,17 @@ import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigati
 import Paper from 'material-ui/Paper';
 import FontAwesome from 'react-fontawesome';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import CarParksIcon1 from 'material-ui/svg-icons/maps/map';
+import CarParksIcon2 from 'material-ui/svg-icons/maps/my-location';
+import CarParksIcon3 from 'material-ui/svg-icons/maps/pin-drop';
+import CarParksIcon4 from 'material-ui/svg-icons/maps/navigation';
+import CarParksIcon5 from 'material-ui/svg-icons/action/history';
+import CarParksIcon6 from 'material-ui/svg-icons/action/favorite';
 
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
-const nearbyIcon = <IconLocationOn />;
+
+const recentsIcon = <CarParksIcon5 className="material-icons">restore</CarParksIcon5>;
+const favoritesIcon = <CarParksIcon6 className="material-icons">favorite</CarParksIcon6>;
+const nearbyIcon = <CarParksIcon3 className="material-icons">nearby</CarParksIcon3>;
 
 /**
  * A simple example of `BottomNavigation`, with three labels and icons

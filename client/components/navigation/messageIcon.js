@@ -5,6 +5,8 @@ import IconButton from 'material-ui/IconButton';
 import MapsPlace from 'material-ui/svg-icons/maps/place';
 import Badge from 'material-ui/Badge';
 import ReactTooltip from 'react-tooltip'
+import MessageListDrop from './messagelistdrop';
+import Divider from 'material-ui/Divider';
 import ChatIcon from 'material-ui/svg-icons/communication/message';
 
 class MessageIcon extends React.Component{
@@ -24,7 +26,9 @@ class MessageIcon extends React.Component{
   }
 
   messageList =()=>{
-    return this.state.messages.map((msg,i) => <MenuItem key={i} value={msg.value} primaryText={msg.text}/>);
+    return this.state.messages.map((msg,i) =>
+      <MessageListDrop key={i} senderpic={msg.value} sender={msg.value} message={msg.text}/>
+   );
   }
 
   messageCount = () => {
