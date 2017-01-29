@@ -1,0 +1,17 @@
+db:
+  image: mongo
+  ports:
+    - "27017:27017"
+  command: "--smallfiles --logpath=/dev/null"
+  restart: always
+web:
+  build: .
+  command: nodemon babel-node -- server/index.js
+  volumes:
+    - .:/parkspace
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  environment:
+    PORT: 3000

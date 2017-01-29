@@ -1,4 +1,6 @@
-FROM node:7.2.1
+FROM node:7.4.0
+
+MAINTAINER Tharaka Romesh
 
 # work dir
 RUN mkdir -p /usr/src/parkspace
