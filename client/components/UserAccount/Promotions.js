@@ -4,7 +4,7 @@ class Promotions extends React.Component{
    render(){
      return(
        <div>
-       <h1>About page :D :D :D :D :P</h1>
+       <h1>Promotions :P</h1>
        </div>
      );
    }

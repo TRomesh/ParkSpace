@@ -29,6 +29,29 @@ const style = {
   }
 };
 
+let buttonclick =(id) => {
+  //  switch (id) {
+  //    case 'myparkings':
+  //       console.log(id);
+  //      break;
+  //      case 'freeparking':
+  //       console.log(id);
+  //      break;
+  //      case 'promotions':
+  //       console.log(id);
+  //      break;
+  //      case 'pwp':
+  //       console.log(id);
+  //      break;
+  //      case 'payments':
+  //       console.log(id);
+  //      break;
+  //    default:
+   //
+  //  }
+  console.log(id);
+}
+
 class UserSideBar extends React.Component{
    render(){
      return(
@@ -38,12 +61,12 @@ class UserSideBar extends React.Component{
             <img src={Avatar1} />
           </Paper>
            <Menu>
-             <MenuItem primaryText="My Parkings" leftIcon={<AddLocationIcon />} />
-             <MenuItem primaryText="Free Parking" leftIcon={<BeenHere />} />
-             <MenuItem primaryText="Promotions" leftIcon={<ContentLink />} />
+             <MenuItem primaryText="My Parkings" ref="myparkings" onTouchTap={()=>{console.log(this.ref);}} leftIcon={<AddLocationIcon />} />
+             <MenuItem primaryText="Free Parking" ref="freeparking" onTouchTap={this.buttonclick} leftIcon={<BeenHere />} />
+             <MenuItem primaryText="Promotions" ref="promotions" onTouchTap={buttonclick(this.id)} leftIcon={<ContentLink />} />
              <Divider />
-             <MenuItem primaryText="Park with ParkSpace" leftIcon={<LocationOn />} />
-             <MenuItem primaryText="Payments" leftIcon={<CreditCardIcon />} />
+             <MenuItem primaryText="Park with ParkSpace" ref="pwp" onTouchTap={buttonclick(this.id)} leftIcon={<LocationOn />} />
+             <MenuItem primaryText="Payments" ref="payments" onTouchTap={buttonclick(this.id)} leftIcon={<CreditCardIcon />} />
            </Menu>
          </Paper>
        </div>
