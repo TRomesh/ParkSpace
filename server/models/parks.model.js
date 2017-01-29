@@ -10,7 +10,9 @@ const parkingLot = new Schema({
     ownernid:{ type:String, required: true, unique: true},
     address:String,
     postalcode:String,
-    
+    parkarea:Number,
+    contact:[{type:Number}]
+
 });
 
 

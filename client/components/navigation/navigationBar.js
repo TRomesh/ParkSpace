@@ -71,7 +71,7 @@ class NavigationBar extends React.Component{
                     targetOrigin={{horizontal: 'right', vertical: 'top'}}
                     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                   >
-                      <MenuItem primaryText="My Account" containerElement={<Link to="about"/>}/>
+                      <MenuItem primaryText="My Account" containerElement={<Link to="myaccount"/>}/>
                       <MenuItem primaryText="Help" containerElement={<Link to="about"/>}/>
                       <MenuItem primaryText="Sign out" onTouchTap={this.Signout} />
                   </IconMenu>

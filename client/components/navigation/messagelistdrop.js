@@ -47,7 +47,7 @@ class MessageListDrop extends React.Component{
    render(){
      return(
          <ListItem
-           leftAvatar={<Avatar src={this.props.senderpic} />}
+           leftAvatar={<Avatar src={this.props.senderpic} size={30}/>}
            primaryText={this.props.sender}
            secondaryText={
              <p>
