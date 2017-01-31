@@ -12,7 +12,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 import regusers from './models/regusers.model';
 import Router from './routes/UserRouter';
-import Chat from './services/socket/chat';
+import SocketService from './services/socket/SocketService';
 
 const cross = cros();
 const app = express();
@@ -49,7 +49,7 @@ server.listen(port,()=> console.log('Running on port: '+port));
 app.use('/', express.static(__dirname));
 
 Router(app);
-Chat(app,io);
+SocketService(app,io);
 
 
 app.get('*',(req,res) => {

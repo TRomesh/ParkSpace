@@ -9,7 +9,7 @@ let ConnectedUser = [];
 const requireAuth = passport.authenticate('jwt',{session:false});
 
 
-const chat = (app,io) => {
+const SocketService = (app,io) => {
 
   io.on('connection', (socket) => {
 
@@ -28,6 +28,10 @@ const chat = (app,io) => {
 
           });
 
+          socket.on('notify', (err) => {
+              console.log('notify');
+          });
+
           socket.on('connect_error', (err) => {
               console.log('connect_error');
           });
@@ -44,4 +48,4 @@ const chat = (app,io) => {
   });
 }
 
-export default chat;
+export default SocketService;
