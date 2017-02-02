@@ -11,6 +11,7 @@ import LocationOn from 'material-ui/svg-icons/communication/location-on';
 import Delete from 'material-ui/svg-icons/action/delete';
 import BeenHere from 'material-ui/svg-icons/maps/beenhere';
 import Avatar1 from '../../media/images/avatars/boy-2.svg';
+import SideBarActions from '../../Actions/SideBarActions';
 
 const style = {
   paper: {
@@ -29,30 +30,21 @@ const style = {
   }
 };
 
-let buttonclick =(id) => {
-  //  switch (id) {
-  //    case 'myparkings':
-  //       console.log(id);
-  //      break;
-  //      case 'freeparking':
-  //       console.log(id);
-  //      break;
-  //      case 'promotions':
-  //       console.log(id);
-  //      break;
-  //      case 'pwp':
-  //       console.log(id);
-  //      break;
-  //      case 'payments':
-  //       console.log(id);
-  //      break;
-  //    default:
-   //
-  //  }
-  console.log(id);
-}
+
 
 class UserSideBar extends React.Component{
+
+  constructor(props){
+     super(props);
+
+  }
+
+  buttonclick =(event) => {
+    const {id} = event.target;
+    console.log(typeof id);
+    SideBarActions.SideBarClick('freeparking');
+  }
+
    render(){
      return(
        <div>
@@ -61,12 +53,12 @@ class UserSideBar extends React.Component{
             <img src={Avatar1} />
           </Paper>
            <Menu>
-             <MenuItem primaryText="My Parkings" ref="myparkings" onTouchTap={()=>{console.log(this.ref);}} leftIcon={<AddLocationIcon />} />
-             <MenuItem primaryText="Free Parking" ref="freeparking" onTouchTap={this.buttonclick} leftIcon={<BeenHere />} />
-             <MenuItem primaryText="Promotions" ref="promotions" onTouchTap={buttonclick(this.id)} leftIcon={<ContentLink />} />
+             <MenuItem primaryText="My Parkings" key="myparkings" onTouchTap={()=>{console.log(this.primaryText)}} leftIcon={<AddLocationIcon />} />
+             <MenuItem primaryText="Free Parking" id="freeparking" onTouchTap={this.buttonclick} leftIcon={<BeenHere />} />
+             <MenuItem primaryText="Promotions" id="promotions" onTouchTap={this.buttonclick} leftIcon={<ContentLink />} />
              <Divider />
-             <MenuItem primaryText="Park with ParkSpace" ref="pwp" onTouchTap={buttonclick(this.id)} leftIcon={<LocationOn />} />
-             <MenuItem primaryText="Payments" ref="payments" onTouchTap={buttonclick(this.id)} leftIcon={<CreditCardIcon />} />
+             <MenuItem primaryText="Park with ParkSpace" id="pwp" onTouchTap={this.buttonclick} leftIcon={<LocationOn />} />
+             <MenuItem primaryText="Payments" id="payments" onTouchTap={this.buttonclick} leftIcon={<CreditCardIcon />} />
            </Menu>
          </Paper>
        </div>
