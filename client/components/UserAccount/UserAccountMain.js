@@ -23,7 +23,7 @@ class UserAccountMain extends React.Component{
   constructor(props){
      super(props);
      this.state={
-       content:'payments'
+       content:''
      };
 
   }

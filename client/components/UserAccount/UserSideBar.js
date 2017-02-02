@@ -39,10 +39,8 @@ class UserSideBar extends React.Component{
 
   }
 
-  buttonclick =(event) => {
-    const {id} = event.target;
-    console.log(typeof id);
-    SideBarActions.SideBarClick('freeparking');
+  buttonclick =(data,event) => {
+    SideBarActions.SideBarClick(data);
   }
 
    render(){
@@ -53,12 +51,12 @@ class UserSideBar extends React.Component{
             <img src={Avatar1} />
           </Paper>
            <Menu>
-             <MenuItem primaryText="My Parkings" key="myparkings" onTouchTap={()=>{console.log(this.primaryText)}} leftIcon={<AddLocationIcon />} />
-             <MenuItem primaryText="Free Parking" id="freeparking" onTouchTap={this.buttonclick} leftIcon={<BeenHere />} />
-             <MenuItem primaryText="Promotions" id="promotions" onTouchTap={this.buttonclick} leftIcon={<ContentLink />} />
+             <MenuItem primaryText="My Parkings" onTouchTap={this.buttonclick.bind(this,'myparking')} leftIcon={<AddLocationIcon />} />
+             <MenuItem primaryText="Free Parking" onTouchTap={this.buttonclick.bind(this,'freeparking')} leftIcon={<BeenHere />} />
+             <MenuItem primaryText="Promotions" onTouchTap={this.buttonclick.bind(this,'promotions')} leftIcon={<ContentLink />} />
              <Divider />
-             <MenuItem primaryText="Park with ParkSpace" id="pwp" onTouchTap={this.buttonclick} leftIcon={<LocationOn />} />
-             <MenuItem primaryText="Payments" id="payments" onTouchTap={this.buttonclick} leftIcon={<CreditCardIcon />} />
+             <MenuItem primaryText="Park with ParkSpace" onTouchTap={this.buttonclick.bind(this,'parkwithps')} leftIcon={<LocationOn />} />
+             <MenuItem primaryText="Payments" onTouchTap={this.buttonclick.bind(this,'payments')} leftIcon={<CreditCardIcon />} />
            </Menu>
          </Paper>
        </div>
