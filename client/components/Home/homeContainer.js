@@ -1,20 +1,22 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import RightSideBar from './RightSideBar';
+import LeftSideBar from './LeftSideBar';
+
+const style = {
+   width:'100%',
+   padding:0,
+   margin:0
+}
 
 
 class Home extends React.Component{
 
    render(){
      return(
-       <div>
-       <h1>Home :D</h1>
-       <FontAwesome
-          className='super-crazy-colors'
-          name='rocket'
-          size='2x'
-          spin
-          style={{ textShadow: '10px 1px 10px rgba(0, 0, 0, 0.1)' }}
-        />
+       <div className="container-fluid row" style={style}>
+         <div className="col-lg-3"><RightSideBar/></div>
+         <div className="col-lg-6"><h1>Middle Bar</h1></div>
+         <div className="col-lg-3"><LeftSideBar/></div>
        </div>
      );
    }
