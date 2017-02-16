@@ -12,7 +12,7 @@
     "node",
     "js",
     "react",
-    "redux"
+    "flux"
   ],
   "author": "Tharaka Romesh",
   "license": "MIT",

@@ -1,6 +1,7 @@
 import React from 'react';
 import RightSideBar from './RightSideBar';
 import LeftSideBar from './LeftSideBar';
+import WheretoPark from './WheretoPark';
 
 const style = {
    width:'100%',
@@ -15,7 +16,7 @@ class Home extends React.Component{
      return(
        <div className="container-fluid row" style={style}>
          <div className="col-lg-3"><RightSideBar/></div>
-         <div className="col-lg-6"><h1>Middle Bar</h1></div>
+         <div className="col-lg-6"><WheretoPark /></div>
          <div className="col-lg-3"><LeftSideBar/></div>
        </div>
      );
