@@ -1,8 +1,10 @@
 import React from 'react';
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn}
   from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 
 const styles = {
   propContainer: {
@@ -21,46 +23,53 @@ const tableData = [
     car: 'Toyata Prius',
     city:'Maharagama',
     selected: true,
-    fare:398
+    fare:398,
+    payment:'...'
   },
   {
     park: 'Randal White',
     car: 'Toyata Prius',
     city:'Maradana',
-    fare:200
+    fare:200,
+    payment:'...'
   },
   {
     park: 'Stephanie Sanders',
     car: 'Toyata Prius',
     city:'Pannipitiya',
     selected: true,
-    fare:400
+    fare:400,
+    payment:'...'
   },
   {
     park: 'Steve Brown',
     car: 'Toyata Prius',
     city:'Dematagoda',
-    fare:450
+    fare:450,
+    payment:'...'
   },
   {
     park: 'Joyce Whitten',
     car: 'Toyata Prius',
     city:'Borella',
-    fare:850
+    fare:850,
+    payment:'...'
 
   },
   {
     park: 'Samuel Roberts',
     car: 'Toyata Prius',
     city:'Malabe',
-    fare:332
+    fare:332,
+    payment:'...'
 
   },
   {
     park: 'Adam Moore',
     car: 'Toyata Prius',
     city:'Nugegoda',
-    fare:350
+    fare:350,
+    payment:'...'
   },
 ];
 
@@ -80,8 +89,17 @@ export default class TableExampleComplex extends React.Component {
       deselectOnClickaway: true,
       showCheckboxes: true,
       height: '300px',
+      open: false
     };
   }
+
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   handleToggle = (event, toggled) => {
     this.setState({
@@ -94,6 +112,19 @@ export default class TableExampleComplex extends React.Component {
   };
 
   render() {
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onTouchTap={this.handleClose}
+      />,
+    ];
     return (
       <div>
         <Table
@@ -128,15 +159,15 @@ export default class TableExampleComplex extends React.Component {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-            {tableData.map( (row, index) => (
-              <TableRow key={index} selected={row.selected}>
-                <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{row.park}</TableRowColumn>
-                <TableRowColumn>{row.car}</TableRowColumn>
-                <TableRowColumn>{row.city}</TableRowColumn>
-                <TableRowColumn>LKR {row.fare}</TableRowColumn>
-                <TableRowColumn>{row.payment}</TableRowColumn>
-              </TableRow>
+            {tableData.map( (row, index, indexx) => (
+                    <TableRow key={index} selected={row.selected} onTouchTap={this.handleOpen} >
+                    <TableRowColumn>{index}</TableRowColumn>
+                    <TableRowColumn>{row.park}</TableRowColumn>
+                    <TableRowColumn>{row.car}</TableRowColumn>
+                    <TableRowColumn>{row.city}</TableRowColumn>
+                    <TableRowColumn>LKR {row.fare}</TableRowColumn>
+                    <TableRowColumn>{row.payment}</TableRowColumn>
+                   </TableRow>
               ))}
           </TableBody>
           <TableFooter
@@ -144,6 +175,15 @@ export default class TableExampleComplex extends React.Component {
           >
           </TableFooter>
         </Table>
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          The actions in this window were passed in as an array of React objects.
+        </Dialog>
       </div>
     );
   }
