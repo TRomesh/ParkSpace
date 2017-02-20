@@ -55,6 +55,8 @@
     "react-fontawesome": "^1.5.0",
     "react-google-maps": "^4.11.0",
     "react-router": "^2.8.1",
+    "react-star-rating": "^1.4.2",
+    "react-star-rating-component": "^1.2.4",
     "react-tap-event-plugin": "^2.0.1",
     "react-tooltip": "^3.2.2",
     "socket.io": "^1.7.2",

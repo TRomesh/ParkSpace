@@ -13,6 +13,7 @@ import Error404 from './Notifications/Error404';
 import chatContainer from './chat/chatContainer';
 import homeContainer from './Home/homeContainer';
 import userAccountContainer from './UserAccount/UserAccountContainer';
+import DialogDetails from './UserAccount/DialogDetails';
 
 let hasToken = () =>{
   const token = localStorage.getItem('token');
@@ -38,6 +39,7 @@ export default (
       <Route path="signup/parkowner" component={SignupForm}/>
     </Route>
     <Route path="about" component={About} />
+    <Route path="dialog" component={DialogDetails} />
     <Route path="myaccount" component={userAccountContainer} onEnter={requireAuth} />
     <Route path="map" component={mapContainer} onEnter={requireAuth} />
     <Route path="newsfeeds" component={newsFeedContainer} onEnter={requireAuth} />
