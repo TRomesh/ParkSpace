@@ -2,6 +2,7 @@ import React from 'react';
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn}
   from 'material-ui/Table';
 import Dialog from 'material-ui/Dialog';
+import DialogDetails from './DialogDetails';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -182,7 +183,7 @@ export default class TableExampleComplex extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          The actions in this window were passed in as an array of React objects.
+          <DialogDetails/>
         </Dialog>
       </div>
     );
