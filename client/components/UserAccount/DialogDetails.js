@@ -43,8 +43,7 @@ class DialogDetails extends React.Component{
                 <div><p>9:18 PM</p></div>
                 <div><p>9:18 PM</p></div>
              </div>
-             <div className="col-lg-3 container row">.
-                <div className="col-md-8"></div>
+             <div className="col-lg-3">.
                 <StarRatingComponent
                   name="rate1"
                   starCount={5}

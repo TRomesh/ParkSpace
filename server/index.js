@@ -12,6 +12,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 import regusers from './models/regusers.model';
 import Router from './routes/UserRouter';
+import ParkingsRouter from './routes/ParkingsRouter';
 import SocketService from './services/socket/SocketService';
 
 const cross = cros();
@@ -49,6 +50,7 @@ server.listen(port,()=> console.log('Running on port: '+port));
 app.use('/', express.static(__dirname));
 
 Router(app);
+ParkingsRouter(app);
 SocketService(app,io);
 
 
