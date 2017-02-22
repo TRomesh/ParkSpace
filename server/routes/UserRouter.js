@@ -8,8 +8,8 @@ const requireLogin = passport.authenticate('local',{session:false});
 
 const user = (app) => {
 
-    app.get('/user',requireAuth,function (req,res){
-        res.send({hi:'there'});
+    app.get('/user',requireAuth,function (req, res, next){
+        res.json({hi:'there'});
     });
 
     app.post('/login',requireLogin,Authentication.login);

@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt-nodejs';
 
 let tokenForUser = (user) =>{
     const timpestamp = new Date().getTime();
-    return jwt.encode({uid:user.id,iat:timpestamp},config.secret);
+    return jwt.encode({sub:user.id,iat:timpestamp},config.secret);
 }
 
 

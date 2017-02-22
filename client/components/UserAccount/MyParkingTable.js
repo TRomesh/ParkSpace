@@ -78,7 +78,6 @@ export default class TableExampleComplex extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       fixedHeader: true,
       fixedFooter: true,
