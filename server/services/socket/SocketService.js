@@ -24,8 +24,8 @@ const SocketService = (app,io) => {
           });
 
           socket.on('message', (data) => {
-              io.sockets.connected[ConnectedUser[data.usr]].emit('chat', { message:data.msg });
-
+            console.log('menna awa!',data.usr,ConnectedUser[data.usr]);
+              socket.broadcast.to(ConnectedUser[data.usr]).emit('chat',{ message:data.msg });
           });
 
           socket.on('notify', (err) => {

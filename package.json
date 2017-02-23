@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --watch server --exec babel-node -- server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-unit": "lab ./test/unit --pattern \"^[^_]\" --verbose"
+    "test-unit": "lab ./test/unit --pattern \"^[^_]\" --verbose",
+    "debug": "nodemon --watch server --exec babel-node --inspect=3000 --debug-brk server/index.js"
   },
   "keywords": [
     "node",

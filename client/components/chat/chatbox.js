@@ -36,7 +36,7 @@ class chatContainer extends React.Component{
     chatmessage = () => {
         let message = this.refs.chattext.getValue();
         if(message.length !== 0){
-          socket.emit('message', {msg:message,usr:'tromesh'});
+          socket.emit('message', {msg:message,usr:'gune'});
           console.log('emmited');
 
         }

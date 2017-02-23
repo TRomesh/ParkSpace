@@ -19,7 +19,7 @@ export default {
     },
     GetUser(user) {
       console.log('action get');
-      axios.get('http://localhost:3000/user',headers: {'Authorization':token}).then((response)=>{
+      axios.get('http://localhost:3000/user').then((response)=>{
         console.log(response);
          dispatch({ actionType: AppConstants.ADD_USER,data:response.data});
         }).catch((err)=>{

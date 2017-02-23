@@ -87,7 +87,7 @@ export default class TableExampleComplex extends React.Component {
       multiSelectable: false,
       enableSelectAll: false,
       deselectOnClickaway: true,
-      showCheckboxes: true,
+      showCheckboxes: false,
       height: '300px',
       open: false
     };
