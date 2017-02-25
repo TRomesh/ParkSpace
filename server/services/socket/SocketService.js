@@ -5,10 +5,6 @@ import passport from 'passport';
 
 let ConnectedUser = [];
 
-
-const requireAuth = passport.authenticate('jwt',{session:false});
-
-
 const SocketService = (app,io) => {
 
   io.on('connection', (socket) => {
@@ -25,7 +21,8 @@ const SocketService = (app,io) => {
 
           socket.on('message', (data) => {
             console.log('menna awa!',data.usr,ConnectedUser[data.usr]);
-              socket.broadcast.to(ConnectedUser[data.usr]).emit('chat',{ message:data.msg });
+            // socket.broadcast.emit('chat',{ message:data.msg });
+              socket.to(ConnectedUser[data.usr]).emit('chat',{ message:data.msg });
           });
 
           socket.on('notify', (err) => {
